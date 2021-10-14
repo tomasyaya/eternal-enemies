@@ -24,3 +24,5 @@ class Enemy {
     this.direction = direction;
   }
 }
+
+export default Enemy;

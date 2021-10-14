@@ -1,4 +1,6 @@
 "use strict";
+import Player from "./player.mjs";
+import Enemy from "./enemy.mjs";
 
 class Game {
   constructor(canvas) {
@@ -22,6 +24,7 @@ class Game {
       this.updateCanvas();
       this.clearCanvas();
       this.drawCanvas();
+
       if (!this.isGameOver) {
         window.requestAnimationFrame(loop);
       }
@@ -59,6 +62,9 @@ class Game {
           this.onGameOver();
         }
       }
+      if (enemy.x < this.player.x - 10) {
+        this.enemies.splice(index, 1);
+      }
     });
   }
 
@@ -66,3 +72,5 @@ class Game {
     this.onGameOver = callback;
   }
 }
+
+export default Game;
